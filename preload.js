@@ -1,12 +1,38 @@
 // All of the Node.js APIs are available in the preload process.
 // It has the same sandbox as a Chrome extension.
-window.addEventListener('DOMContentLoaded', () => {
-  const replaceText = (selector, text) => {
-    const element = document.getElementById(selector)
-    if (element) element.innerText = text
-  }
+const path = require("path");
+const { dialog } = require("electron").remote;
+const SkillShare = require("./lib/skillshare");
+const data = require("./data");
 
-  for (const type of ['chrome', 'node', 'electron']) {
-    replaceText(`${type}-version`, process.versions[type])
-  }
-})
+window.addEventListener("DOMContentLoaded", () => {
+  let formSubmission = document.querySelector("form");
+  formSubmission.addEventListener("submit", async e => {
+    e.preventDefault();
+
+    let sk_url = document.querySelector("#courseUrl").value;
+    try {
+      let dirPath = await dialog.showOpenDialog({
+        properties: ["openDirectory"]
+      });
+      if (dirPath) {
+        setTimeout(() => {
+          const skshare = new SkillShare(
+            data.cookie,
+            dirPath.filePaths[0],
+            data.pk,
+            data.account_id
+          );
+
+          skshare.downloadByUrl(sk_url);
+        }, 2000);
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  });
+
+  // skshare.downloadByUrl(
+  //   "https://www.skillshare.com/classes/Pricing-Your-Work-and-Negotiating-with-Clients/1526419742?via=browse-featured"
+  // );
+});
