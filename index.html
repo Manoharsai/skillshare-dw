@@ -33,6 +33,12 @@
         border-top: 1px solid #fff;
         width: 50%;
       }
+
+      em {
+        font-size: 12px;
+        color: #666;
+        display: none;
+      }
     </style>
   </head>
   <body>
@@ -52,9 +58,17 @@
               type="submit"
               class="btn btn-light btn-sm mt-4"
               value="Download"
+              id="submit_btn"
             />
           </div>
         </form>
+        <div class="progressContent text-center">
+          <p id="progress" class="mb-4"></p>
+          <em
+            >Note: The above progress is based on multiple files being
+            downloaded.</em
+          >
+        </div>
       </div>
     </div>
     <!-- You can also require other files to run in this process -->

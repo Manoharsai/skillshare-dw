@@ -1,6 +1,5 @@
 // All of the Node.js APIs are available in the preload process.
 // It has the same sandbox as a Chrome extension.
-const path = require("path");
 const { dialog } = require("electron").remote;
 const SkillShare = require("./lib/skillshare");
 const data = require("./data");
@@ -17,6 +16,8 @@ window.addEventListener("DOMContentLoaded", () => {
       });
       if (dirPath) {
         setTimeout(() => {
+          document.querySelector("#submit_btn").disabled = true;
+          document.querySelector("em").style.display = "block";
           const skshare = new SkillShare(
             data.cookie,
             dirPath.filePaths[0],
