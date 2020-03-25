@@ -1,8 +1,8 @@
 // All of the Node.js APIs are available in the preload process.
 // It has the same sandbox as a Chrome extension.
 const { dialog } = require("electron").remote;
-const SkillShare = require("./lib/skillshare");
-const data = require("./data");
+const SkillShare = require("../lib/skillshare");
+const data = require("../data");
 
 window.addEventListener("DOMContentLoaded", () => {
   let formSubmission = document.querySelector("form");

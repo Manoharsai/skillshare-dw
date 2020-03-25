@@ -1,27 +1,68 @@
 {
-  "name": "electron-quick-start",
+  "name": "skillshare-dow",
+  "productName": "skillshare-dow",
   "version": "1.0.0",
-  "description": "A minimal Electron application",
-  "main": "main.js",
+  "description": "My Electron application description",
+  "main": "src/index.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "publish": "electron-forge publish",
+    "lint": "echo \"No linting configured\""
   },
-  "repository": "https://github.com/electron/electron-quick-start",
-  "keywords": [
-    "Electron",
-    "quick",
-    "start",
-    "tutorial",
-    "demo"
-  ],
-  "author": "GitHub",
-  "license": "CC0-1.0",
-  "devDependencies": {
-    "electron": "^8.1.1"
+  "keywords": [],
+  "author": {
+    "name": "Idrees",
+    "email": "dargahidrees@gmail.com"
+  },
+  "license": "MIT",
+  "config": {
+    "forge": {
+      "packagerConfig": {},
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "skillshare_dow"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-dmg",
+          "config": {
+            "background": "./assets/dmg-background.png",
+            "format": "ULFO"
+          }
+        }
+      ]
+    }
   },
   "dependencies": {
+    "electron-squirrel-startup": "^1.0.0",
     "mkdirp": "^1.0.3",
     "node-fetch": "^2.6.0",
     "slugify": "^1.4.0"
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "6.0.0-beta.50",
+    "@electron-forge/maker-deb": "6.0.0-beta.50",
+    "@electron-forge/maker-rpm": "6.0.0-beta.50",
+    "@electron-forge/maker-squirrel": "6.0.0-beta.50",
+    "@electron-forge/maker-zip": "6.0.0-beta.50",
+    "electron": "8.2.0"
   }
 }
