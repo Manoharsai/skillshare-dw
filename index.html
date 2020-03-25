@@ -14,19 +14,33 @@
 
     <style>
       body {
-        background: #333333;
+        background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+        background-size: 400% 400%;
+        animation: gradient 15s ease infinite;
         color: #fff;
         height: 100vh;
       }
 
+      @keyframes gradient {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
       .wrap-form {
-        margin: 0 20%;
+        margin: 0 10%;
         position: relative;
         top: 30%;
       }
 
       .full-height {
-        height: 100vh;
+        height: 80vh;
       }
 
       hr {
@@ -36,12 +50,46 @@
 
       em {
         font-size: 12px;
-        color: #666;
+        color: #fff;
         display: none;
+      }
+      #help {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+      }
+
+      .modal-content {
+        color: #333;
       }
     </style>
   </head>
   <body>
+    <header>
+      <!-- Button trigger modal -->
+      <button
+        type="button"
+        class="btn btn-outline-light"
+        data-toggle="modal"
+        data-target="#exampleModal"
+        id="help"
+      >
+        <svg
+          class="bi bi-question-square-fill"
+          width="1em"
+          height="1em"
+          viewBox="0 0 16 16"
+          fill="currentColor"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M2 0a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V2a2 2 0 00-2-2H2zm4.57 6.033H5.25C5.22 4.147 6.68 3.5 8.006 3.5c1.397 0 2.673.73 2.673 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.355H7.117l-.007-.463c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.901 0-1.358.603-1.358 1.384zm1.251 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z"
+            clip-rule="evenodd"
+          />
+        </svg>
+      </button>
+    </header>
     <div class="container full-height">
       <div class="wrap-form">
         <h3 class="text-center">Skillshare</h3>
@@ -56,7 +104,7 @@
             />
             <input
               type="submit"
-              class="btn btn-light btn-sm mt-4"
+              class="btn btn-outline-light btn-sm mt-4"
               value="Download"
               id="submit_btn"
             />
@@ -68,6 +116,50 @@
             >Note: The above progress is based on multiple files being
             downloaded.</em
           >
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Frequently Asked Questions</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <h6>1. How to download ?</h6>
+            <p>
+              Copy &amp; pase the course url from your browser and press the
+              'Download' button. Let the magic begin!
+            </p>
+            <h6>2. Why is the progress improper ?</h6>
+            <p>
+              The application downloads multiple videos together due to which
+              the progress changes for each video. Don't worry, everything seems
+              working!
+            </p>
+            <h6>3. An error which i cannot understand. What to do ?</h6>
+            <p>
+              Create an issue over <a href="">here</a> with the screenshot of
+              the error. You will be followed up with a probable solution./p>
+            </p>
+          </div>
         </div>
       </div>
     </div>
