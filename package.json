@@ -19,32 +19,37 @@
   "license": "MIT",
   "config": {
     "forge": {
-      "packagerConfig": {},
+      "packagerConfig": {
+        "name": "SkDownload",
+        "icon": "./assets/logo.icns"
+      },
       "makers": [
         {
           "name": "@electron-forge/maker-squirrel",
           "config": {
-            "name": "skillshare_dow"
+            "name": "SkDownload",
+            "exe": "SkDownload",
+            "iconUrl": "assets/logo.ico",
+            "setupIcon": "assets/logo.ico"
           }
         },
         {
-          "name": "@electron-forge/maker-zip",
-          "platforms": [
-            "darwin",
-            "linux"
-          ]
-        },
-        {
           "name": "@electron-forge/maker-deb",
-          "config": {}
-        },
-        {
-          "name": "@electron-forge/maker-rpm",
-          "config": {}
+          "config": {
+            "categories": [
+              "Education"
+            ],
+            "genericName": "SkDownload",
+            "icon": "assets/logo.png",
+            "name": "SkDownload",
+            "productName": "SkDownload"
+          }
         },
         {
           "name": "@electron-forge/maker-dmg",
           "config": {
+            "name": "SKDownload",
+            "icon": "assets/logo.png",
             "format": "ULFO"
           }
         }
