@@ -32,8 +32,4 @@ window.addEventListener("DOMContentLoaded", () => {
       console.error(err);
     }
   });
-
-  // skshare.downloadByUrl(
-  //   "https://www.skillshare.com/classes/Pricing-Your-Work-and-Negotiating-with-Clients/1526419742?via=browse-featured"
-  // );
 });
